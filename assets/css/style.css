@@ -1,0 +1,359 @@
+:root{
+    --primary-color:grey;
+    --secondary-color:lightblue;
+    --tertiary-color:#3987c9;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-margin-top: 90px;
+}
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background:#212a2e;
+}
+/* Header styles */
+header{
+    padding:20px 35px;
+    background-color: var(--primary-color);
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    background-size:cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-position: 80%;
+    z-index: 9999;
+}
+header h1{
+    font-weight: bold;
+    margin: 0;
+    font-size: 40px;
+}
+header a{
+    text-decoration: none;
+    color:var(--secondary-color);
+}
+header nav{
+    margin: 7px 0;
+}
+header nav ul{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+header nav ul li a{
+    padding:10px 15px;
+    font-weight: bolder;
+    font-size: 1.55vw;
+    text-decoration: underline;
+}
+/* Hero styles */
+.hero{
+    background-image: url('../images/portfolio-hero-image.jpeg');
+    width: 100%;
+    background-size: cover;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+.hero img{
+    width:25%;
+    margin: 3.5%;
+    margin-left:15%;
+    border: solid 4px var(--tertiary-color);
+    border-radius: 15px;
+    position: relative;
+    float: left;
+}
+.hero p{
+    font-size: 36px;
+    width: 25%;
+    margin: 15%;
+    text-align: center;
+    color: var(--secondary-color);
+    background: var(--primary-color);
+    float: right;
+    border-radius: 15px;
+    border: solid 4px var(--tertiary-color);
+}
+/* About Me Text Styles */
+.aboutme-text{
+    color: white;
+    margin-left: 20vw;
+    padding: 1.5vw;
+}
+/* Basic styles for About Me, Work, Contact Me, and Resume Sections */
+.mystuff{
+    margin: 50px auto;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+/* Styles for header for each section */
+.section-title{
+    color: var(--secondary-color);
+    font-size: 46px;
+}
+/* General styles for all work images */
+#work img{
+    filter: grayscale(60%);
+    transition: 0.4s;
+}
+#work img:hover{
+    filter: none;
+}
+/* Styles for large image */
+.work-big{
+    border: .5vw solid var(--primary-color);
+    margin-right: 10vw; 
+    height: 27vw;
+    display: flex;
+}
+/* Grid adapted from this video- https: //www.youtube.com/watch?v=rnhoY5Cdmy0. Allows four smaller projects to be displayed in a grid */
+.image-grid{
+    --gap: 16px;
+    --num-cols:2;
+    --row-height:300px;
+    box-sizing: border-box;
+    padding:var(--gap);
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols),1fr);
+    gap: var(--gap);
+    margin-left: 19vw;
+    margin-right: 10vw;
+}
+.image-grid img{
+    border: .5vw solid var(--primary-color);
+    width:  24vw; 
+    height: 10vw; 
+    object-fit: cover;
+}
+/* Container class allow linking the Project Description with the image */
+.container{
+    position: relative;
+    text-align: center;
+}
+/* Styles for project descriptions, both larger and smaller images */
+.project-des-big{
+    position: absolute;
+    bottom: 4vw;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    
+}
+.project-des{
+    position: absolute;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    bottom: 25px;
+    left: 1px;
+}
+/* Styles for Contact Me and Resume Text */
+#contact-me p, #contact-me a, #resume a {
+    text-decoration: underline;
+    text-underline-position: under;
+    color: var(--tertiary-color);
+}
+#resume a{
+    margin-right: 60%;
+}
+
+/* MEDIA QUERY FOR MOBILE PHONES AND SMALLER */
+@media screen and (max-width:575px){
+    /* Mobile header styles */
+    header {
+        padding-bottom: 0;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+    }
+    header h1 {
+        width: 100%;
+        text-align: center;
+    }
+    header nav ul {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+    header nav ul li a {
+        font-size: 20px;
+        scroll-margin-top: 0px;
+    }
+    /* Mobile hero styles */
+    .hero {
+        display: flex;
+        text-align: center;
+    }
+    .hero img{
+        width:35%;
+        margin: auto;
+        margin-top: 20px;  
+    }
+    .hero p{
+        font-size: 7vw;
+        display: block;
+        width:auto;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    /* Mobile project description styles. Had to add !important tag to a few, as other mediaqueries were overwriting them for some reason */
+    .project-des-big{
+        position: static;
+        font-size: 2vw !important;
+    }
+    .project-des{
+        font-size:2vw;
+        position:static !important;
+        font-size: 1.5vw !important;
+        padding: .5vw;
+        margin-bottom: 1vw;
+    }
+    /* image grid styles to allow them to sit on top of each other */
+    .image-grid {
+        flex-wrap: wrap;
+        display: block;
+    }
+    .image-grid img{
+        width: 45vw;
+        height: 15vw;
+        margin-bottom: -1vw;
+    }
+    .work-big{
+        width: 45vw;
+    }
+    /* Had to adjust positioning of last two sections */
+    #contact-me h2{
+        margin-top: 70vw !important;
+    }
+}
+
+/* MEDIA QUERY FOR TABLETS AND SMALLER */
+@media screen and (max-width:820px){
+    /* Header styles */
+    header {
+        padding-bottom: 0;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+    }
+    header h1 {
+        width: 100%;
+        text-align: center;
+    }
+    header nav ul {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+    header nav ul li a {
+        font-size: 20px;
+        scroll-margin-top: 0px;
+    }
+    .hero {
+        display: flex;
+        text-align:
+        center;
+    }
+    /* On touch screens having a hover effect might not work as well */
+    #work img {
+        filter: none;
+    }
+}
+/* MEDIA QIERY FOR SMALLER DESKTOP SCREENS AND SMALLER */
+@media screen and (max-width:980px){
+    /* On larger screens, clicking the links in the nav bar would scroll you down too far,
+    had to adjust. Not necessary for smaller screens */
+    *{
+        scroll-margin-top:0px;
+    }
+    /* Header styles */
+    header {
+        padding-bottom: 0;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+    }
+    header h1 {
+        width: 100%;
+        text-align: center;
+    }
+    header nav ul {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+    }
+    header nav ul li a {
+        font-size: 20px;
+        scroll-margin-top: 0px;
+    }
+    /* hero styles */
+    .hero{
+        display: flex;
+        text-align: center;
+    }
+    .hero img {
+        display: inline;
+    }
+    /* styles to make section titles work better on smaller screens */
+    #contact-me h2{
+        margin-top: 10vw;
+    }
+    .section-title {
+        flex: 1 100%;
+        text-align: center;
+    }
+    /* Text adjustments */
+    .mystuff a, .mystuff p{
+        flex: 1 100%;
+        text-align: center;    
+    }
+    #resume a {
+        margin: auto;
+    }
+    .aboutme-text {
+        color: white;
+        margin: auto;
+    }
+    #contact-me p, #contact-me a, #resume a{
+        margin: auto;
+        padding: 0.5vw;
+    }
+    /* image/ image grid adjustments */
+    .image-grid{
+        --row-height: 200px;
+        height: 10vw;
+        margin: auto;
+    }
+    .project-des-big {
+        font-size: 1.5vw;
+    }
+    .project-des {
+        position: absolute;
+        bottom: 20px;
+        left: 1px;
+        font-size: 1vw;
+    }
+    .work-big{
+        margin: auto;
+        display: block;
+   }
+    .container{
+        margin:auto;
+    }
+    #work #image{
+        margin: auto;
+    }
+}
